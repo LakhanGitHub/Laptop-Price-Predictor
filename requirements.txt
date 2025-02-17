@@ -4,5 +4,5 @@ gunicorn==22.0.0
 dj-database-url==2.1.0
 scikit-learn
 pandas==1.4.2
-numpy==1.21.5
+numpy==1.21.1
 pickle==4.0
