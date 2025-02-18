@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import PredictionForm
+from django.http import HttpResponse, HttpResponseRedirect
 
 import pickle
 import os
@@ -69,8 +70,10 @@ def predict(request):
         query = query.reshape(1,12)
         
         prediction ="The predicted price of this configuration is: Rs " + str(np.round(np.exp(pipe.predict(query)[0]),0))
-        return render(request, 'priceprediction/home.html', {'form':form,'result':prediction})
+        return HttpResponse('Well done!!')
+        #return render(request, 'priceprediction/home.html', {'form':form,'result':prediction})
 
     else:
         form = PredictionForm()
-    return render(request, 'priceprediction/home.html', {'form':form})
+    return HttpResponse('Well done!!')
+    #return render(request, 'priceprediction/home.html', {'form':form})
